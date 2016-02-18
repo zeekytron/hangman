@@ -8,6 +8,9 @@
 #####################################
 
 import random, sys, os
+import drawings
+
+
 
 
 word = ""
@@ -34,7 +37,7 @@ def startGame():
 
 # select a word from the list at random
 def getRandomWord():
-    words = ["python", "fox", "deer", "wolf", "owl", "dog", "cat", "shrimp", "chimpanzee", "monkey", "lizard", "sparrow", "robin" , "cardinal" , "buffalo" , "squirrel" , "bison" , "rat" , "lion" , "cyclop" , "swallow"]
+    words = ["python", "fox", "deer", "wolf", "owl", "dog", "cat", "shrimp", "chimpanzee", "monkey", "lizard", "sparrow", "robin" , "cardinal" , "buffalo" , "squirrel" , "bison" , "rat" , "lion" , "cyclop" , "swallow" , "phenoix" , "dragon" , "chipmunk" , "turtle" , "gorrila" , "coyote" , "skeleton" , "zombie" , "pig" ,"cow" , "sheep" , "chicken" , "rooster" , "bull" , "pigeon" , "doves"]
     randomWord = random.choice(words)
     return randomWord
 
@@ -76,7 +79,7 @@ def drawBoard():
         #    os.system('clear')
 
     # draw the board
-    print "??????????????????????"
+    print eval("drawings.drawing" + str(len(wrongLettersGuessed)))
     print ""
     letterBoard = ""
     for letter in word:
@@ -84,11 +87,12 @@ def drawBoard():
             letterBoard += letter
         else:
             letterBoard += "_"
-    print "letterboard: %s" % letterBoard
+    print "Letterboard: %s" % letterBoard
     #print "correct letters %s" % correctLettersGuessed
-    print "incorrect letters %s" % wrongLettersGuessed
+    if len(wrongLettersGuessed) >= 1:
+        print "Guesses %s" % wrongLettersGuessed
     print ""
-    print "??????????????????????"
+    #print "??????????????????????"
 
 
 def takeATurn():
